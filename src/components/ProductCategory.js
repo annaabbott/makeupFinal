@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router";
 import Divider from "@mui/material/Divider";
 //import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
@@ -9,8 +10,13 @@ import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import ProductCard from "./ProductCard";
 
+const ProductCategory = ({ category, categoryName, product }) => {
+  const navigate = useNavigate();
 
-const ProductCategory = ({category}) => {
+  function seeAll() {
+    navigate(`/products/${category.name}`);
+  }
+
   return (
     <div>
       <CssBaseline />
@@ -22,11 +28,29 @@ const ProductCategory = ({category}) => {
           divider={<Divider orientation="vertical" flexItem />}
           spacing={2}
         >
-          <ProductCard key={category.items[0].id} categoryName={category.name} product={category.items[0]}/>
-          <ProductCard key={category.items[1].id} categoryName={category.name} product={category.items[1]}/>
-          <ProductCard key={category.items[2].id} categoryName={category.name} product={category.items[2]}/>
-          <ProductCard key={category.items[3].id} categoryName={category.name} product={category.items[3]}/>
-          <Button variant="outlined">See All {category.name} </Button>
+          <ProductCard
+            key={category.items[0].id}
+            categoryName={category.name}
+            product={category.items[0]}
+          />
+          <ProductCard
+            key={category.items[1].id}
+            categoryName={category.name}
+            product={category.items[1]}
+          />
+          <ProductCard
+            key={category.items[2].id}
+            categoryName={category.name}
+            product={category.items[2]}
+          />
+          <ProductCard
+            key={category.items[3].id}
+            categoryName={category.name}
+            product={category.items[3]}
+          />
+          <Button variant="outlined" onClick={seeAll}>
+            See All {category.name}{" "}
+          </Button>
         </Stack>
       </Container>
     </div>
