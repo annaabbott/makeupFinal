@@ -6,15 +6,9 @@ import Stack from "@mui/material/Stack";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-
+import { Button } from "@mui/material";
 import ProductCard from "./ProductCard";
 
-// const Item = styled(Paper)(({ theme }) => ({
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: "center",
-//   color: theme.palette.text.secondary,
-// }));
 
 const ProductCategory = ({category}) => {
   return (
@@ -32,7 +26,7 @@ const ProductCategory = ({category}) => {
           <ProductCard key={category.items[1].id} categoryName={category.name} product={category.items[1]}/>
           <ProductCard key={category.items[2].id} categoryName={category.name} product={category.items[2]}/>
           <ProductCard key={category.items[3].id} categoryName={category.name} product={category.items[3]}/>
-          {/* <ProductCard>See All Category Name</ProductCard> */}
+          <Button variant="outlined">See All {category.name} </Button>
         </Stack>
       </Container>
     </div>
