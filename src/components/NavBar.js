@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import { useIdentityContext } from "react-netlify-identity-gotrue";
 import { useNavigate } from "react-router-dom";
 
+
 import CartContext from "../providers/CartContext";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -35,6 +36,10 @@ const NavBar = (props) => {
     navigate("/")
   }
 
+  const cartHandler = () => {
+    navigate(`MyCart/cart`);
+  }
+
   return (
     <Stack direction="row" spacing={2} sx={{justifyContent: "space-between", width: "1200px"}}>
       <h1 onClick={navigateHomeHandler} style={{cursor:"pointer"}}>React Drug Store Cosmetics</h1>
@@ -42,7 +47,7 @@ const NavBar = (props) => {
       <Box sx={{display: "flex", alignItems: "center", "&>*": {margin:"8px"}}}>
       <Button
         startIcon={<ShoppingCartIcon />}
-        onClick={props.onClick}
+        onClick={cartHandler}
         sx={{ marginTop: "1rem" }}
       >
         My Cart
