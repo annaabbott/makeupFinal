@@ -15,10 +15,8 @@ const NavBar = (props) => {
   const navigate = useNavigate();
   const greeting = `Hello, ${identity.user?.user_metadata?.full_name}`;
 
-  const cartItemsTotal = cartCtx.items.reduce((currentNum, item) => {
-    return currentNum + item.amount;
-  }, 0);
-
+  const cartItemsTotal = cartCtx.state.total;
+  
   const signInHandler = () => {
     navigate("/signin");
   };

@@ -1,17 +1,15 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Container } from "@mui/material";
 import CartItemCard from "../components/CartItemCard";
-
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
+import CartContext from "../providers/CartContext";
 
-
-const MyCart = (props) => {
+const CartPage = (props) => {
   const navigate = useNavigate();
+  const cartCtx = useContext(CartContext);
 
-  const cartItems = [
-    { id: "item1", name: "example", amount: 2, price: 12.99 },
-  ].map((item) => <CartItemCard key={item.id} name product={item} />);
+  const cartItems = cartCtx.state.items.map((item) => <CartItemCard key={item.id} name product={item} />);
 
   function continueShopping() {
    navigate(-1);
@@ -31,4 +29,4 @@ const MyCart = (props) => {
   );
 };
 
-export default MyCart;
+export default CartPage;

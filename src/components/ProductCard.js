@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import image from "../images/placeholderImg.jpg";
 import { useNavigate } from "react-router";
+import CartContext from "../providers/CartContext";
 
 const cardStyle = {
   width: "300px",
@@ -45,10 +46,15 @@ const bottomRow = {
 
 function ProductCard({ categoryName, product }) {
   const navigate = useNavigate();
+  const cartCtx = useContext(CartContext);
 
   function showDetails() {
-    navigate(`/products/${categoryName}/${product.id}`)
+    navigate(`/products/${categoryName}/${product.id}`);
   }
+
+  const addToCartHandler = (event) => {
+    cartCtx.addToCartHandler(product);
+  };
 
   return (
     <Card sx={cardStyle}>
@@ -60,17 +66,17 @@ function ProductCard({ categoryName, product }) {
         ) : (
           <CardMedia component="img" height="140" image={image} />
         )}
-        <div>$ {Math.round(product.price).toFixed(2)}</div>
+        <div>${Math.round(product.price).toFixed(2)}</div>
         <Box sx={bottomRow}>
           <Button onClick={showDetails}>View Product Details</Button>
 
-          <IconButton>
+          <IconButton onClick={addToCartHandler}>
             <ShoppingCartIcon />
           </IconButton>
         </Box>
       </CardContent>
     </Card>
   );
-}
+};
 
 export default ProductCard;
