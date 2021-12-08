@@ -69,7 +69,6 @@ function ProductCard({ categoryName, product }) {
         <div>${Math.round(product.price).toFixed(2)}</div>
         <Box sx={bottomRow}>
           <Button onClick={showDetails}>View Product Details</Button>
-
           <IconButton onClick={addToCartHandler}>
             <ShoppingCartIcon />
           </IconButton>
