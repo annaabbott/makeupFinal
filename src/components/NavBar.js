@@ -15,7 +15,7 @@ const NavBar = (props) => {
   const navigate = useNavigate();
   const greeting = `Hello, ${identity.user?.user_metadata?.full_name}`;
 
-  const cartItemsTotal = cartCtx.state.total;
+  const cartItemsTotal = cartCtx.state.totalCount;
   
   const signInHandler = () => {
     navigate("/signin");
@@ -81,7 +81,7 @@ const NavBar = (props) => {
         <Fragment>
           <Button
             variant="contained"
-            sx={{ marginTop: "1rem" }}
+            sx={{ marginTop: "1rem", marginRight: "1rem"}}
             onClick={signInHandler}
           >
             Sign In

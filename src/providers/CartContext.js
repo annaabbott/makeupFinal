@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from "react";
 const initialReducerState = {
   items: [],
   totalAmount: 0,
-  total: 0
+  totalCount: 0,
 };
 
 const initialContextState = {
@@ -30,13 +30,27 @@ const cartReducer = (state, action) => {
     });
 
     if (!found) {
-      newItems.push({...action.item});
+      newItems.push({ ...action.item, count: 1 });
     }
 
     return {
+      ...state,
       items: newItems,
-      totalAmount: state.totalAmount + action.item.price,
-      total: state.total + 1
+      totalAmount: state.totalAmount + parseFloat(action.item.price),
+      totalCount: state.totalCount + 1,
+    };
+  } else if (action.type === "REMOVE") {
+    const item = state.items.find((i) => i.id === action.id);
+    if (!item) {
+      return state;
+    }
+
+    const newItems = state.items.filter((i) => i.id !== item.id);
+    return {
+      ...state,
+      items: newItems,
+      totalAmount: state.totalAmount - (parseFloat(item.price) * item.count),
+      totalCount: state.totalCount - item.count
     };
   }
 
