@@ -1,5 +1,4 @@
-import { Fragment, useContext } from "react";
-import Box from "@mui/material/Box";
+import { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,11 +8,6 @@ import Stack from "@mui/material/Stack";
 import Container from '@mui/material/Container';
 
 import CartContext from "../providers/CartContext";
-
-const bottomRow = {
-  display: "flex",
-  justifyContent: "space-between",
-};
 
 const cartCardStyle = {
   width: "100%",
@@ -27,6 +21,8 @@ function removeFromCartHandler(id) {
   cartCtx.removeFromCartHandler(product.id);
 }
 
+const price = Math.round(product.price).toFixed(2)
+
   return (
     <Card sx={cartCardStyle}>
       <CardContent>
@@ -38,9 +34,9 @@ function removeFromCartHandler(id) {
             <CardMedia component="img" sx={{height:140, width: 140}} image={image} />
           )}
           <Container style={{ height: "3em" }}>{product.name}</Container>
-          <Container>$ {Math.round(product.price).toFixed(2)}</Container>
+          <Container>Individual Price: $&nbsp;{price}</Container>
           <Container>Quantity: {product.count}</Container>
-          
+          <Container>Total price: $&nbsp;{(product.count * price).toFixed(2)}</Container>
           <Container >
             <Button  variant="outlined" onClick={ removeFromCartHandler}>Remove From Cart</Button>
           </Container>

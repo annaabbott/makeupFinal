@@ -25,6 +25,7 @@ const cartReducer = (state, action) => {
           count: item.count + 1,
         };
       } else {
+
         return item;
       }
     });
@@ -36,7 +37,7 @@ const cartReducer = (state, action) => {
     return {
       ...state,
       items: newItems,
-      totalAmount: state.totalAmount + parseFloat(action.item.price),
+      totalAmount: state.totalAmount + Math.round(parseFloat(action.item.price).toFixed(2)),
       totalCount: state.totalCount + 1,
     };
   } else if (action.type === "REMOVE") {
@@ -49,7 +50,7 @@ const cartReducer = (state, action) => {
     return {
       ...state,
       items: newItems,
-      totalAmount: state.totalAmount - (parseFloat(item.price) * item.count),
+      totalAmount: state.totalAmount -  (Math.round(parseFloat(action.item.price).toFixed(2)) * item.count),
       totalCount: state.totalCount - item.count
     };
   }
