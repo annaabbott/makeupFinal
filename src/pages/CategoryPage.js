@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ProductDataContext from "../providers/ProductDataContext";
 import ProductCard from "../components/ProductCard";

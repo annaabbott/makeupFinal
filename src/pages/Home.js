@@ -10,7 +10,7 @@ function Home() {
   return (
     <Fragment>
       {productContext.products.length > 0 &&
-        productContext.products.map((category) => <ProductCategory category={category} />)}
+        productContext.products.map((category) => <ProductCategory key={category.name} category={category} />)}
       {productContext.isLoading && <Loader />}
     </Fragment>
   );
