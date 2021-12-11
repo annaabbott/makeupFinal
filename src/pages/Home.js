@@ -1,18 +1,25 @@
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import ProductCategory from "../components/ProductCategory";
-
+import { TransitionGroup } from "react-transition-group";
 import ProductDataContext from "../providers/ProductDataContext";
 import Loader from "../components/Loader";
+import Collapse from "@mui/material/Collapse";
+import { Box } from "@mui/system";
 
 function Home() {
   const productContext = useContext(ProductDataContext);
 
+  console.log(`Render <Home> - isLoading=${productContext.isLoading}`)
   return (
-    <Fragment>
+    <TransitionGroup>
       {productContext.products.length > 0 &&
-        productContext.products.map((category) => <ProductCategory key={category.name} category={category} />)}
-      {productContext.isLoading && <Loader />}
-    </Fragment>
+        productContext.products.map((category) => (
+          <Collapse key={category.name}>
+            <ProductCategory category={category} />
+          </Collapse>
+        ))}
+      {productContext.isLoading ? <Loader /> : <div/>}
+    </TransitionGroup>
   );
 }
 
