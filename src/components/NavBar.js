@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box"
+import { Typography } from "@mui/material";
 
 const NavBar = (props) => {
   const cartCtx = useContext(CartContext);
@@ -66,7 +67,7 @@ const NavBar = (props) => {
       </Button>
       {identity.user && (
         <Fragment>
-          <h3>{greeting}</h3>
+          <Typography variant="h6" sx={{marginTop: "1rem", marginRight: "1rem"}}>{greeting}</Typography>
           <Button
             variant="contained"
             onClick={signOutHandler}
