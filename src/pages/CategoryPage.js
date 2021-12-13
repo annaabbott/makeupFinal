@@ -26,7 +26,7 @@ const CategoryPage = () => {
       <CssBaseline></CssBaseline>
       <Container>
         <h3>Showing all {categoryName}</h3>
-        <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around"}}>
           {category.items.map((item) => (
             <ProductCard
               key={item.id}
