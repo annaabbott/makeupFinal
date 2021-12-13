@@ -4,7 +4,6 @@ import { TransitionGroup } from "react-transition-group";
 import ProductDataContext from "../providers/ProductDataContext";
 import Loader from "../components/Loader";
 import Collapse from "@mui/material/Collapse";
-import { Box } from "@mui/system";
 
 function Home() {
   const productContext = useContext(ProductDataContext);

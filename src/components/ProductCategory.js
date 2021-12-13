@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useNavigate } from "react-router";
-import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
@@ -23,7 +22,7 @@ const ProductCategory = ({ category, categoryName, product }) => {
         <h3>{category.name}</h3>
         <Stack
           direction="row"
-          divider={<Divider orientation="vertical" flexItem />}
+          // divider={<Divider orientation="vertical" flexItem />}
           spacing={2}
           justifyContent="space-around"
         >

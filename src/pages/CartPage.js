@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext } from "react";
 import { Container } from "@mui/material";
 import CartItemCard from "../components/CartItemCard";
 import { useNavigate } from "react-router-dom";
