@@ -9,7 +9,7 @@ import { CartProvider } from "./providers/CartContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <NetlifyIdentityContext url={"https://gifted-montalcini-29c385.netlify.app"}>
+    <NetlifyIdentityContext url={"https://nostalgic-noyce-b6ad86.netlify.app/"}>
       <BrowserRouter>
         <ProductDataProvider>
           <CartProvider>
