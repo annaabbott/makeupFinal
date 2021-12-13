@@ -1,9 +1,7 @@
 import * as React from "react";
 import { useNavigate } from "react-router";
 import Divider from "@mui/material/Divider";
-//import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-//import { styled } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -27,6 +25,7 @@ const ProductCategory = ({ category, categoryName, product }) => {
           direction="row"
           divider={<Divider orientation="vertical" flexItem />}
           spacing={2}
+          justifyContent="space-around"
         >
           <ProductCard
             key={category.items[0].id}

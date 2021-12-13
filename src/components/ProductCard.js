@@ -12,6 +12,7 @@ import CartContext from "../providers/CartContext";
 
 const cardStyle = {
   width: "300px",
+  marginY: "2rem"
 };
 
 const bottomRow = {
