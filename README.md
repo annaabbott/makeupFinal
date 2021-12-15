@@ -1,3 +1,5 @@
+Site hosted on Netlify: https://nostalgic-noyce-b6ad86.netlify.app/
+
 This project meets the requirements for DGM 3790:
 
 1. Effectively use conditional logic and JavaScript array methods(e.g. Filter, Map, Reduce, Find) to render large lists.
